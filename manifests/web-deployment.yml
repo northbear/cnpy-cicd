@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web
+  name: web
+  namespace: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: 203511311076.dkr.ecr.eu-west-1.amazonaws.com/webapp/web:0.0.1
+        name: web
+        ports:
+        - containerPort: 10080
